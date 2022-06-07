@@ -1,0 +1,28 @@
+{
+  "name": "aish-bridge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Nurmyrat Owlyakulyyew<nurmyratnurmyrat457@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.27.2",
+    "express": "^4.18.1",
+    "fs": "^0.0.1-security",
+    "hddserial": "^0.0.7",
+    "http": "^0.0.1-security",
+    "jszip": "^3.10.0",
+    "jszip-utils": "^0.1.0",
+    "path": "^0.12.7",
+    "socket.io-client": "^4.5.1",
+    "typescript": "^4.7.3",
+    "uuid": "^8.3.2"
+  },
+  "scripts": {
+    "build": "tsc ",
+    "start": "node src/"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13"
+  }
+}
