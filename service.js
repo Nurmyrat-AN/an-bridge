@@ -9,4 +9,4 @@ const svc = new Service({
 });
 
 
-export default svc
+module.exports = svc
