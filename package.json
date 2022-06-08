@@ -19,8 +19,8 @@
     "uuid": "^8.3.2"
   },
   "scripts": {
-    "install": "npm i & tsc & node .",
-    "build": "tsc & node .",
+    "start:install": "npm i & tsc & node .",
+    "start:build": "tsc & node .",
     "start": "node ."
   },
   "devDependencies": {
