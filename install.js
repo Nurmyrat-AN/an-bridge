@@ -1,4 +1,4 @@
-import { svc } from "./service";
+const svc = require("./service")
 
 svc.on('install', function () {
     svc.start();
