@@ -20,7 +20,7 @@
     "uuid": "^8.3.2"
   },
   "scripts": {
-    "start:install": "npm i & npm run build",
+    "start:install": "npm i & npm run start:build",
     "start:build": "tsc & npm start",
     "start": "node uninstall & node install"
   },
