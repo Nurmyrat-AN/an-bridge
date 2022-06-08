@@ -74,7 +74,7 @@ const startServer = async () => {
         _listeners.forEach(listener => {
             const request = async () => {
                 try {
-                    const aish_result = await axios.get(`${listener.from}?limit=1&since=${listener._sequence_number}`, { responseType: 'json' })
+                    const aish_result = await axios.get(`${listener.from}?limit=100&since=${listener._sequence_number}`, { responseType: 'json' })
                     const data = aish_result.data
                     if (data.length === 0) throw 'No data'
                     var zip = new JSZip()
