@@ -19,7 +19,8 @@
     "uuid": "^8.3.2"
   },
   "scripts": {
-    "start": "npm i & tsc & node ."
+    "build": "tsc ",
+    "start": "node ."
   },
   "devDependencies": {
     "@types/express": "^4.17.13"
