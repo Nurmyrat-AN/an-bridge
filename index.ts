@@ -76,7 +76,7 @@ const startServer = async () => {
         _listeners.forEach((listener, index) => {
             const request = async () => {
                 try {
-                    const aish_result = await axios.get(`${listener.from}?limit=5&since=${listener._sequence_number}`, { responseType: 'json' })
+                    const aish_result = await axios.get(`${listener.from}?limit=100&since=${listener._sequence_number}`, { responseType: 'json' })
                     let data = aish_result.data
 
                     if (listener.savecache) {
