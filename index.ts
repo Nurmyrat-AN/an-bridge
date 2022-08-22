@@ -13,7 +13,9 @@ type LISTENERS_TYPE = {
     from: string,
     to: string,
     interval: number,
+    savecache: boolean
     _sequence_number: number
+    cache?: any[]
 }
 type LOCAL_LISTENER_TYPE = LISTENERS_TYPE & { uid: string }
 let _listeners: LOCAL_LISTENER_TYPE[] = []
@@ -71,11 +73,25 @@ const startServer = async () => {
             ...listener,
             uid: `${socket.id}-${uuidv4()}`,
         }))
-        _listeners.forEach(listener => {
+        _listeners.forEach((listener, index) => {
             const request = async () => {
                 try {
-                    const aish_result = await axios.get(`${listener.from}?limit=100&since=${listener._sequence_number}`, { responseType: 'json' })
-                    const data = aish_result.data
+                    const aish_result = await axios.get(`${listener.from}?limit=5&since=${listener._sequence_number}`, { responseType: 'json' })
+                    let data = aish_result.data
+
+                    if (listener.savecache) {
+                        if (!listener.cache) {
+                            listener.cache = [...data]
+                        } else {
+                            const filtered = data.filter((item: any) => !Boolean((listener.cache || []).find(lc => JSON.stringify(lc) === JSON.stringify(item))))
+                            if (filtered.length < data.length) {
+                                listener.cache = [...data]
+                                data = filtered
+                            }
+                        }
+                    }
+
+
                     if (data.length === 0) throw 'No data'
                     var zip = new JSZip()
                     zip.file('data', JSON.stringify(data))
@@ -88,17 +104,18 @@ const startServer = async () => {
                             'Content-Type': 'application/json',
                             'Accept': 'application/multipart-data'
                         },
-                        responseType: 'json',
-                        timeout: 3000
+                        responseType: 'json'
                     })
                     listener._sequence_number = result.data._sequence_number
-                } catch (e) { }
+                } catch (e) {
+                    console.log(e)
+                }
 
                 if (_listeners.find(l => l.uid === listener.uid)) {
                     setTimeout(request, listener.interval)
                 }
             }
-            setTimeout(request, 500)
+            setTimeout(request, 500 * index)
         })
     })
 

@@ -1,0 +1,54 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Developer\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
+
+PATH: 
+  C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Windows\system32\WBEM;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\Developer\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Common Files\Acronis\SnapAPI\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\Windows Kits\10\Microsoft Application Virtualization\Sequencer\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\dotnet\;C:\Users\Developer\AppData\Local\Microsoft\WindowsApps;C:\AppServ\Apache24\bin;C:\AppServ\php7;C:\AppServ\MySQL\bin;C:\Users\Developer\AppData\Roaming\npm;C:\Users\Developer\.dotnet\tools;C:\Users\Developer\AppData\Local\Android\Sdk\platform-tools;
+
+Yarn version: 
+  1.22.18
+
+Node version: 
+  16.14.2
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: read ECONNRESET
+      at TLSWrap.onStreamRead (node:internal/stream_base_commons:217:20)
+
+npm manifest: 
+  {
+    "name": "aish-bridge",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Nurmyrat Owlyakulyyew<nurmyratnurmyrat457@gmail.com>",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+      "axios": "^0.27.2",
+      "express": "^4.18.1",
+      "fs": "^0.0.1-security",
+      "hddserial": "^0.0.7",
+      "http": "^0.0.1-security",
+      "jszip": "^3.10.0",
+      "jszip-utils": "^0.1.0",
+      "path": "^0.12.7",
+      "socket.io-client": "^4.5.1",
+      "typescript": "^4.7.3",
+      "uuid": "^8.3.2"
+    },
+    "scripts": {
+      "build": "tsc ",
+      "start": "node ."
+    },
+    "devDependencies": {
+      "@types/express": "^4.17.13"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
