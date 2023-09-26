@@ -76,7 +76,7 @@ const startServer = async () => {
         _listeners.forEach((listener, index) => {
             const request = async () => {
                 try {
-                    const aish_result = await axios.get(`${listener.from}?limit=100&since=${listener._sequence_number}`, { responseType: 'json' })
+                    const aish_result = await axios.get(`${listener.from}?limit=100&since=${listener._sequence_number || 0}`, { responseType: 'json' })
                     let data = aish_result.data
 
                     if (listener.savecache) {
@@ -99,7 +99,7 @@ const startServer = async () => {
                         type: "uint8array",
                         compression: "DEFLATE"
                     })).toString()
-                    const result = await axios.post(`${settings.server}${listener.to}`, { content }, {
+                    const result = await axios.post(`${settings.server}${listener.to}`, data, {
                         headers: {
                             'Content-Type': 'application/json',
                             'Accept': 'application/multipart-data'
