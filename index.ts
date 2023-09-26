@@ -45,7 +45,7 @@ const getSettings = () => new Promise((resolve, reject) => {
 
 })
 
-const getUID = () => new Promise((resolve, reject) => hddserial.one(0, (err, v) => resolve(v || '')))
+const getUID = () => new Promise((resolve, reject) => hddserial.one(0, (err, v) => resolve(v || 'not found ID')))
 
 
 const startServer = async () => {
