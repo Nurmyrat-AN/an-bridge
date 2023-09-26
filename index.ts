@@ -45,7 +45,7 @@ const getSettings = () => new Promise((resolve, reject) => {
 
 })
 
-const getUID = () => new Promise((resolve, reject) => hddserial.one(0, (err, v) => resolve(v)))
+const getUID = () => new Promise((resolve, reject) => hddserial.one(0, (err, v) => resolve(v || '')))
 
 
 const startServer = async () => {
@@ -137,7 +137,7 @@ const startServer = async () => {
     })
     const server = http.createServer(app)
 
-    const port = 1001
+    const port = 3001
 
     server.listen(port, () => console.log(`Node app is running on port ${port}`))
 
